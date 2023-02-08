@@ -68,7 +68,10 @@ snippy --outdir mysnps --ref ref_seq.fasta --contigs all_seqs.fasta
 
 ### Using Primal Scheme
 
-1. First, test PrimalScheme with your reference genome to see if it will crash. We are building 2000bp primers with preference toward high gc content for higher melting points. 
+1. Still working within your Conda environment and having navigated to your desired working directory, we next run Primal Scheme. 
+
+
+2. First, test PrimalScheme with your reference genome to see if it will crash. We are building 2000bp primers with preference toward high gc content for higher melting points. 
 
 ```
 #!/bin/bash
