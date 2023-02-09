@@ -4,9 +4,26 @@
 
 ### Before uploading sequences to Ruddle 
 
+1. Before uploading serotype 3 genomes to Ruddle for Snippy runs, we have to concatenate all the contig files into one. Since there were so many serotype 3 genomes downloaded from GPS, I got 5 zip files. I consequently split these up into 5 contig files that will later be aligned into a snps core alignment. 
+
+2. Navigate to your computer's working directory that contains all your zip files. Mine is as folllows:  
+
+```
+cd Users/flg9/Desktop/Developer/grubaugh_lab/primer_design/snippy/seqs/contigs
+```
+3. Then copy all the fasta files into another folder (e.g. snippy_1), where we will concatenate. This isn't the most efficient code, so you'll have to run for each zip file as follows: 
+
 ```
 cp zip_1/*/*.fa zip_1/snippy_1/
 ```
+
+4. Finally, concatenate within the subfolder as follows: 
+
+```
+cat zip_1/*/.fa > seqs_1.fasta
+```
+
+5. You can now upload seqs_1-5.fasta to Ruddle to analyze with Snippy. 
 
 
 ### Setting up a Conda environment
@@ -63,9 +80,10 @@ conda activate primer_design
 #SBATCH --error=snippy.err
 
 module load miniconda
-conda activate primalscheme
+conda activate primer_design
 
 snippy --outdir mysnps --ref ref_seq.fasta --contigs all_seqs.fasta  
+<cut>
 ```
 
 3. This shouldn't take long to run, so you'll get output files briefly. 
