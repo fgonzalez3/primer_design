@@ -98,6 +98,13 @@ ls mysnps_*
 snippy-core --ref ref_seq.fasta --prefix core mysnps_1 mysnps_2 ...
 ```
 
+5. Check to make sure the *.core files are present. Then run the below code (again, no need to run a bash script as long as your environment is activated): 
+
+```
+$ snippy-clean_full_aln core.full.aln > clean.full.aln
+
+
+
 
 
 ### Using Primal Scheme
