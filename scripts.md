@@ -60,7 +60,11 @@ exit
 conda activate primer_design
 ```
 
-6. From there you should be able to use 'conda install PACKAGENAME' inside the activated environment to install other packages in the environment if need be. If an error occurs at this step, delete the original environment and create a new one reflecting the packages you wish to use. 
+6. From there you should be able to use 'conda install PACKAGENAME' inside the activated environment to install other packages in the environment if need be. If an error occurs at this step, delete the original environment and create a new one reflecting the packages you wish to use. To delete environment:
+
+```
+conda env remove -yn ENVNAME
+```
 
 ### Using Snippy
 
