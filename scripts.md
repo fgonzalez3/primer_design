@@ -106,6 +106,10 @@ snippy-core --ref ref_seq.fasta --prefix core mysnps_1 mysnps_2 ...
 
 ```
 $ snippy-clean_full_aln core.full.aln > clean.full.aln
+$run_gubbins.py -p gubbins clean.full.aln
+% snp-sites -c gubbins.filtered_polymorphic_sites.fasta > clean.core.aln
+% FastTree -gtr -nt clean.core.aln > clean.core.tree
+```
 
 
 
