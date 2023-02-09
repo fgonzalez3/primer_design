@@ -2,6 +2,12 @@
 
 1. Download sequences and .csv file containing sequence info from Global Pneumococcal Sequencing (GPS) database containing metadata and assemblies of serotype 3 genomes that could be used to generate an inital alignment for PrimalScheme. Genome ranges are from ~1.7-2.7mb. These sequences will download as contigs, so this will have to be accounted for in Snippy. 
 
+### Before uploading sequences to Ruddle 
+
+```
+cp zip_1/*/*.fa zip_1/snippy_1/
+```
+
 
 ### Setting up a Conda environment
 
