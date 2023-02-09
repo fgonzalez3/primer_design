@@ -20,7 +20,7 @@ cp zip_1/*/*.fa zip_1/snippy_1/
 4. Finally, concatenate within the subfolder as follows: 
 
 ```
-cat zip_1/*/.fa > seqs_1.fasta
+cat zip_1/snippy_1/*.fa > seqs_1.fasta
 ```
 
 5. You can now upload seqs_1-5.fasta to Ruddle to analyze with Snippy. 
