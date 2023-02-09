@@ -70,25 +70,35 @@ conda activate primer_design
 
 ```
 #!/bin/bash
-#SBATCH --job-name=snippy_spneumo
+#SBATCH --job-name=snippy_1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
 #SBATCH --time=48:00:00
-#SBATCH --output=snippy.out
-#SBATCH --error=snippy.err
+#SBATCH --output=snippy_1.out
+#SBATCH --error=snippy_1.err
 
 module load miniconda
 conda activate primer_design
 
-snippy --outdir mysnps --ref ref_seq.fasta --contigs all_seqs.fasta  
+snippy --outdir mysnps_1 --ref ref_seq.fasta --contigs seqs_1.fasta  
 <cut>
 ```
 
-3. This shouldn't take long to run, so you'll get output files briefly. 
+3. This shouldn't take long to run, so you'll get output files briefly. First, check that all output directories contain the necessary files.
 
-4. {analysis of output files here}
+```
+ls mysnps_*
+```
+
+4. Then, make a core SNP alignment. No need to create a bash script for this.. as long as your environment is activated, you can run directly. 
+
+```
+snippy-core --ref ref_seq.fasta --prefix core mysnps_1 mysnps_2 ...
+```
+
+
 
 ### Using Primal Scheme
 
