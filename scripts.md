@@ -66,7 +66,7 @@ conda activate primer_design
 
 1. Once your environment is activated and you are within your desired working directory on the cluster, you can run Snippy. 
 
-2. Conda will not follow you into your working environment, so you will have to call upon it within your shellscript. Since the sequences pulled from GPS are contigs (not reads), flag the concatenated .fasta file containing the S. pneumo sequences you want to align to your reference sequence with '--contigs'.
+2. Conda will not follow you into bash script, so you will have to call upon it here. Since the sequences pulled from GPS are contigs (not reads), flag the concatenated .fasta file containing the S. pneumo sequences you want to align to your reference sequence with '--contigs'.
 
 ```
 #!/bin/bash
