@@ -1,2 +1,2 @@
 # primer_design
-this directory contains scripts and sequences used to design primers for amplicon sequencing 
+this repo contains documentation for s. pneumo primer design
