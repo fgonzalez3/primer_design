@@ -99,7 +99,7 @@ ls mysnps_*
 4. Then, make a core SNP alignment. No need to create a bash script for this.. as long as your environment is activated, you can run directly. 
 
 ```
-snippy-core --ref ref_seq.fasta --prefix core mysnps_1 mysnps_2 ...
+snippy-core --ref ref_seq.fasta --prefix core mysnps_1/ mysnps_2/ ...
 ```
 
 5. Check to make sure the *.core files are present. Then run the below code (again, no need to run a bash script as long as your environment is activated): 
@@ -120,7 +120,7 @@ $run_gubbins.py -p gubbins clean.full.aln
 1. Still working within your Conda environment and having navigated to your desired working directory, we next run Primal Scheme. 
 
 
-2. First, test PrimalScheme with your reference genome to see if it will crash. We are building 2000bp primers with preference toward high gc content for higher melting points. 
+2. First, test PrimalScheme with your reference genome to see if it will crash or not. We are building 2000bp primers with preference toward high gc content for higher melting points. 
 
 ```
 #!/bin/bash
