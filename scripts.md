@@ -111,9 +111,40 @@ $run_gubbins.py -p gubbins clean.full.aln
 % FastTree -gtr -nt clean.core.aln > clean.core.tree
 ```
 
+### Using Parsnp
 
+Parsnp is a command-line-tool for efficient microbial core genome alignment and SNP detection. Parsnp was designed to work in tandem with Gingr, a flexible platform for visualizing genome alignments and phylogenetic trees; both Parsnp and Gingr form part of the Harvest suite. 
 
+1. First, log onto your cluster (i.e. Ruddle) and create a directory to run Parsnp analysis. 
 
+2. Following the Parsnp Github download instructions, I downloaded Parsnp onto my existing Yale Ruddle conda environment. 
+
+```
+(primer_design) [flg9@ruddle1 parsnp]$ conda install parnsp
+```
+
+2. Afterwards, upload the following:
+a) reference sequence
+b) slurm script 
+c) s. pneumo genomes (I created an additional directory to upload these, 'genomes', for neatness)
+
+3. Run the following script, or one similar. 
+
+```
+#!/bin/bash
+#SBATCH --job-name=parsnp_psneumo
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --time=72:00:00
+#SBATCH --output=parsnp.out
+#SBATCH --error=parsnp.err
+
+module load miniconda
+conda activate primer_design
+
+parsnp -r ref_seq.fasta -d ./genomes/*fa -c
+```
 
 ### Using Primal Scheme
 
