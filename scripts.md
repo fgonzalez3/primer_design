@@ -123,12 +123,12 @@ Parsnp is a command-line-tool for efficient microbial core genome alignment and 
 (primer_design) [flg9@ruddle1 parsnp]$ conda install parnsp
 ```
 
-2. Afterwards, upload the following:
+3. Afterwards, upload the following:
 a) reference sequence
 b) slurm script 
 c) s. pneumo genomes (I created an additional directory to upload these, 'genomes', for neatness)
 
-3. Run the following script, or one similar. 
+4. Run the following script, or one similar. 
 
 ```
 #!/bin/bash
