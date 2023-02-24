@@ -171,3 +171,5 @@ conda activate primer_design
 
 primalscheme multiplex ref_seq.fasta -a 2000 --high-gc
 ```
+
+3. PrimalScheme will yield numerous output files. Download your.bed file and upload to Geneious to make sure that primers align with your ref seq, or sequence alignments (not shown in this step). 
