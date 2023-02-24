@@ -146,6 +146,11 @@ conda activate primer_design
 parsnp -r ref_seq.fasta -d ./genomes/*fa -c
 ```
 
+5. Once Parsnp is done running, it will produce numerous output files including a .tree file. I visualized this tree file in FigTree(v1.4.4). Once visualized, I picked 10 (1 being the ref seq) of the most relatively divergent S. pneumo serotype 3 sequences to align and feed into PrimalScheme. 
+
+### Bacterial genome alignment tool 
+
+
 ### Using Primal Scheme
 
 1. Still working within your Conda environment and having navigated to your desired working directory, we next run Primal Scheme. 
