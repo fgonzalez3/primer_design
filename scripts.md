@@ -150,7 +150,7 @@ parsnp -r ref_seq.fasta -d ./genomes/*fa -c
 
 ### Using Primal Scheme
 
-1. Still working within your Conda environment and having navigated to your desired working directory, we next run Primal Scheme. 
+1. Still working within your Conda environment and having navigated to your desired working directory, we next run ([PrimalScheme]https://primalscheme.com/). 
 
 
 2. First, test PrimalScheme with your reference genome to see if it will crash or not. We are building 2000bp primers with preference toward high gc content for higher melting points. 
