@@ -66,7 +66,7 @@ conda activate primer_design
 conda env remove -yn ENVNAME
 ```
 
-### Using Primal Scheme
+### Running Primal Scheme on your Reference Sequence
 
 1. Still working within your Conda environment and having navigated to your desired working directory, we next run [PrimalScheme](https://primalscheme.com/). 
 
@@ -137,6 +137,36 @@ $run_gubbins.py -p gubbins clean.full.aln
 % snp-sites -c gubbins.filtered_polymorphic_sites.fasta > clean.core.aln
 % FastTree -gtr -nt clean.core.aln > clean.core.tree
 ```
+### Running PrimalScheme on Snippy outputs 
+
+1. Running my core genomes on PrimalScheme gave me the following error:
+
+```
+Writing log to output/scheme.log
+Error: One or more of your references is too different in size to the primary (first) reference. The maximum difference is 500 nt.
+```
+
+2. Instead, we decided to run PrimalScheme on the consensus genomes originally outputted by Snippy and found within mysnps_1, ..., mysnps_5. Collecting each of these consensus files, I concatenated them to make a "meta consensus". Comprised of 490 S. Pneumo sequences and our refseq, this was our input for PrimalScheme:
+
+```
+#!/bin/bash
+#SBATCH --job-name=primalscheme_consensus
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1024
+#SBATCH --time=48:00:00
+#SBATCH --output=primalscheme.out
+#SBATCH --error=primalscheme.err
+
+module load miniconda
+conda activate primer_design
+
+primalscheme multiplex sp_consensus.fa -a 2000 --high-gc --force
+```
+
+
+
 
 ### Using Parsnp
 
