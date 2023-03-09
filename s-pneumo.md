@@ -66,6 +66,33 @@ conda activate primer_design
 conda env remove -yn ENVNAME
 ```
 
+### Using Primal Scheme
+
+1. Still working within your Conda environment and having navigated to your desired working directory, we next run [PrimalScheme](https://primalscheme.com/). 
+
+
+2. First, test PrimalScheme with your reference genome to see if it will crash or not. We are building 2000bp primers with preference toward high gc content for higher melting points. 
+
+```
+#!/bin/bash
+#SBATCH --job-name=primalscheme_refseq
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1024
+#SBATCH --time=48:00:00
+#SBATCH --output=primalscheme.out
+#SBATCH --error=primalscheme.err
+
+module load miniconda
+conda activate primer_design
+
+primalscheme multiplex ref_seq.fasta -a 2000 --high-gc
+```
+
+3. PrimalScheme will yield numerous output files. Download your .bed file and upload to Geneious to make sure that primers align with your ref seq, or sequence alignments (not shown in this step). 
+
+
 ### Using Snippy
 
 1. Once your environment is activated and you are within your desired working directory on the cluster, you can run Snippy. 
@@ -148,28 +175,4 @@ parsnp -r ref_seq.fasta -d ./genomes/*fa -c
 
 5. Once Parsnp is done running, it will produce numerous output files including a .tree file. I visualized this tree file in FigTree(v1.4.4). Once visualized, I picked 10 (1 being the ref seq) of the most relatively divergent S. pneumo serotype 3 sequences to align and feed into PrimalScheme. 
 
-### Using Primal Scheme
 
-1. Still working within your Conda environment and having navigated to your desired working directory, we next run [PrimalScheme](https://primalscheme.com/). 
-
-
-2. First, test PrimalScheme with your reference genome to see if it will crash or not. We are building 2000bp primers with preference toward high gc content for higher melting points. 
-
-```
-#!/bin/bash
-#SBATCH --job-name=primalscheme_refseq
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=8
-#SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=1024
-#SBATCH --time=48:00:00
-#SBATCH --output=primalscheme.out
-#SBATCH --error=primalscheme.err
-
-module load miniconda
-conda activate primer_design
-
-primalscheme multiplex ref_seq.fasta -a 2000 --high-gc
-```
-
-3. PrimalScheme will yield numerous output files. Download your .bed file and upload to Geneious to make sure that primers align with your ref seq, or sequence alignments (not shown in this step). 
