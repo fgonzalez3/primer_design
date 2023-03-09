@@ -165,9 +165,6 @@ conda activate primer_design
 primalscheme multiplex sp_consensus.fa -a 2000 --high-gc --force
 ```
 
-
-
-
 ### Using Parsnp
 
 Parsnp is a command-line-tool for efficient microbial core genome alignment and SNP detection. Parsnp was designed to work in tandem with Gingr, a flexible platform for visualizing genome alignments and phylogenetic trees; both Parsnp and Gingr form part of the Harvest suite. 
